@@ -74,9 +74,9 @@ const Header = () => {
           
           {/* Logo and Company Name (Left Side) */}
           <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="flex items-center gap-2 md:gap-6">
+            <Link to="/" className="flex items-center gap-2 md:gap-4">
               <img src={logoImg} alt="Crown Commercial Furniture" className={`w-auto object-contain scale-[1.3] md:scale-[1.5] transition-all duration-300 ${isScrolled ? 'h-[24px] md:h-[30px]' : 'h-[32px] md:h-[40px]'} origin-left`} />
-              <span className={`font-comfortaa tracking-widest text-gray-800 font-light ml-2 transition-all duration-300 ${isScrolled ? 'text-[13px] md:text-lg' : 'text-[15px] md:text-xl'}`}>Restaurantfurniture.in</span>
+              <span className={`font-comfortaa tracking-widest text-gray-800 font-light ml-1 md:ml-2 transition-all duration-300 ${isScrolled ? 'text-[10px] md:text-[13px]' : 'text-[11px] md:text-[15px]'}`}>Restaurantfurniture.in</span>
             </Link>
           </div>
 
