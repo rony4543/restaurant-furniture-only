@@ -72,18 +72,10 @@ const Header = () => {
       }`}>
         <div className="max-w-[1440px] mx-auto px-4 md:px-10 flex justify-between items-center flex-nowrap whitespace-nowrap relative">
           
-          {/* Mobile Hamburger Menu Icon (Left on Mobile, Hidden on Desktop) */}
-          <button 
-            className="lg:hidden p-2 -ml-2 rounded-full hover:bg-gray-100 transition-colors w-[40px] h-[40px] flex items-center justify-center flex-shrink-0"
-            onClick={() => setIsMobileMenuOpen(true)}
-          >
-            <Menu className="w-6 h-6 text-gray-800" />
-          </button>
-
-          {/* Logo and Company Name */}
-          <div className="flex items-center flex-shrink-0 absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
+          {/* Logo and Company Name (Left Side) */}
+          <div className="flex items-center flex-shrink-0">
             <Link to="/" className="flex items-center gap-3 md:gap-6">
-              <img src={logoImg} alt="Crown Commercial Furniture" className={`w-auto object-contain scale-[1.5] transition-all duration-300 ${isScrolled ? 'h-[30px]' : 'h-[40px]'} origin-center lg:origin-left`} />
+              <img src={logoImg} alt="Crown Commercial Furniture" className={`w-auto object-contain scale-[1.5] transition-all duration-300 ${isScrolled ? 'h-[30px]' : 'h-[40px]'} origin-left`} />
               <span className={`font-comfortaa tracking-widest text-gray-800 font-light hidden lg:block ml-2 transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>Restaurantfurniture.in</span>
             </Link>
           </div>
@@ -117,7 +109,7 @@ const Header = () => {
           </nav>
 
           {/* Header Actions (Right Side) */}
-          <div className="flex items-center gap-3 md:gap-5 flex-shrink-0 ml-auto lg:ml-0" ref={searchRef}>
+          <div className="flex items-center gap-1 md:gap-5 flex-shrink-0 ml-auto" ref={searchRef}>
             
             {/* Desktop Search Bar */}
             <div className="relative hidden lg:flex items-center bg-gray-50 rounded-full py-2 px-4 gap-2 border border-transparent focus-within:border-accent focus-within:bg-white transition-colors">
@@ -144,6 +136,14 @@ const Header = () => {
                 <Search className="w-5 h-5 text-gray-800" />
               </button>
             </div>
+
+            {/* Mobile Hamburger Menu Icon (Right Side on Mobile) */}
+            <button 
+              className="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors w-[40px] h-[40px] flex items-center justify-center flex-shrink-0 ml-1"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu className="w-6 h-6 text-gray-800" />
+            </button>
             
             {/* Search Dropdown (Shared between mobile/desktop) */}
             <AnimatePresence>
