@@ -25,14 +25,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[52px] sm:text-[58px] md:text-[72px] lg:text-[90px] leading-[0.95] md:leading-[0.92] font-chillax font-light tracking-[-0.045em] text-white md:text-[#3e4435] drop-shadow-lg md:drop-shadow-none"
+            className="text-[60px] sm:text-[68px] md:text-[72px] lg:text-[90px] leading-[0.95] md:leading-[0.92] font-chillax font-light tracking-[-0.045em] text-white md:text-[#3e4435] drop-shadow-lg md:drop-shadow-none"
           >
             <span className="block">Elevate</span>
             <span className="block">Your Commercial</span>
             <span className="block">Space With</span>
             <span className="block">Premium Furniture.</span>
           </motion.h1>
-          <p className="md:hidden text-white mt-5 text-[17px] font-medium drop-shadow-md leading-snug">
+          <p className="md:hidden text-white mt-5 text-[19px] sm:text-[21px] font-medium drop-shadow-md leading-snug">
             Built for high traffic, trusted by leading hospitality brands.
           </p>
         </motion.div>
