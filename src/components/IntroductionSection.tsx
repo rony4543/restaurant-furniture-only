@@ -29,16 +29,16 @@ const IntroductionSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="w-full lg:w-[45%] flex lg:justify-end"
+          className="w-full lg:w-[45%] flex justify-center lg:justify-end mt-4 md:mt-0"
         >
-           <div className="w-full max-w-[350px] relative overflow-hidden flex items-start">
+           <div className="w-full max-w-[420px] lg:max-w-[350px] relative overflow-hidden flex items-start">
              <video 
                src="/videos/intro-video.mp4" 
                autoPlay 
                loop 
                muted 
                playsInline
-               className="w-full h-auto block object-cover object-top"
+               className="w-full h-auto block object-cover object-top rounded-xl md:rounded-none shadow-lg md:shadow-none"
                style={{ 
                  clipPath: 'inset(0 0 18% 0)',
                  marginBottom: '-18%' 
