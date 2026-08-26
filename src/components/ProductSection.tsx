@@ -55,7 +55,7 @@ const ProductSection = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ amount: 0.7 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className={`flex flex-col flex-none w-[75vw] sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
+                    className={`flex flex-col flex-none w-full sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
                   >
                     <Link 
                       to={`/product/${product.slug}`} 
