@@ -12,6 +12,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
   
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
@@ -63,6 +64,52 @@ const Header = () => {
     { name: 'Project', path: '/projects' }
   ];
 
+  const mobileCategories = [
+    {
+      name: 'Chairs',
+      subCategories: [
+        { name: 'CHAIR MATERIAL', path: '/products' },
+        { name: 'CHAIR STYLE', path: '/products' },
+        { name: 'CHAIR TYPE', path: '/products' },
+        { name: 'SEE ALL RESTAURANT CHAIRS', path: '/products' },
+      ]
+    },
+    {
+      name: 'Bar Stools',
+      subCategories: [
+        { name: 'BAR STOOL MATERIAL', path: '/products' },
+        { name: 'SEE ALL BAR STOOLS', path: '/products' },
+      ]
+    },
+    {
+      name: 'Tables',
+      subCategories: [
+        { name: 'TABLE BASES', path: '/products' },
+        { name: 'TABLE TOPS', path: '/products' },
+        { name: 'SEE ALL TABLES', path: '/products' },
+      ]
+    },
+    {
+      name: 'Outdoor',
+      subCategories: [
+        { name: 'OUTDOOR CHAIRS', path: '/products' },
+        { name: 'SEE ALL OUTDOOR', path: '/products' },
+      ]
+    },
+    {
+      name: 'Booths',
+      subCategories: [
+        { name: 'SEE ALL BOOTHS', path: '/products' },
+      ]
+    },
+    {
+      name: 'More',
+      subCategories: [
+        { name: 'ACCESSORIES', path: '/products' },
+      ]
+    }
+  ];
+
   return (
     <>
       <header className={`w-full z-50 transition-all duration-300 ${
@@ -74,9 +121,9 @@ const Header = () => {
           
           {/* Logo and Company Name (Left Side) */}
           <div className="flex items-center flex-shrink-0">
-            <Link to="/" className="flex items-center gap-2 md:gap-4">
+            <Link to="/" className="flex items-center gap-2 md:gap-6">
               <img src={logoImg} alt="Crown Commercial Furniture" className={`w-auto object-contain scale-[1.3] md:scale-[1.5] transition-all duration-300 ${isScrolled ? 'h-[24px] md:h-[30px]' : 'h-[32px] md:h-[40px]'} origin-left`} />
-              <span className={`font-comfortaa tracking-widest text-gray-800 font-light ml-1 md:ml-2 transition-all duration-300 ${isScrolled ? 'text-[10px] md:text-[13px]' : 'text-[11px] md:text-[15px]'}`}>Restaurantfurniture.in</span>
+              <span className={`font-comfortaa tracking-widest text-gray-800 font-light ml-2 transition-all duration-300 ${isScrolled ? 'text-[13px] md:text-lg' : 'text-[15px] md:text-xl'}`}>Restaurantfurniture.in</span>
             </Link>
           </div>
 
@@ -202,69 +249,104 @@ const Header = () => {
               )}
             </AnimatePresence>
             
-            {/* CTA Button - Hidden on Mobile completely as requested */}
-            <a href="tel:+919876543210" className="hidden lg:flex items-center justify-center gap-2 bg-[#1c1c1c] hover:bg-black text-white h-[48px] px-7 rounded-full text-[14px] font-semibold font-comfortaa transition-all hover:-translate-y-0.5 shadow-sm">
-              <PhoneCall className="w-[18px] h-[18px]" />
-              <span>Contact Sales</span>
-            </a>
+            {/* CTA Contact Info - Hidden on Mobile */}
+            <div className="hidden lg:flex flex-col items-center justify-center ml-2">
+              <a href="tel:+919876543210" className="flex items-center gap-1.5 text-[#ea580c] hover:text-[#c2410c] font-semibold text-[18px] tracking-wide transition-colors">
+                <PhoneCall className="w-[18px] h-[18px]" />
+                <span>+91 98765 43210</span>
+              </a>
+              <span className="text-gray-500 text-[12px] font-medium mt-0.5">Bulk Order? Call Our Experts!</span>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Sidebar Overlay & Menu */}
+      {/* Mobile Menu Full Screen Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] lg:hidden"
-            />
-            <motion.div 
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ type: "spring", damping: 25, stiffness: 250 }}
-              className="fixed top-0 left-0 h-full w-[80%] max-w-[320px] bg-white z-[70] lg:hidden shadow-2xl flex flex-col"
-            >
-              <div className="p-5 flex justify-between items-center border-b border-gray-100">
-                <span className="font-comfortaa font-bold text-lg text-gray-900 tracking-tight">Menu</span>
-                <button 
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-600" />
-                </button>
-              </div>
-              <div className="flex-1 overflow-y-auto py-6 px-5 flex flex-col gap-2">
-                {navItems.map(item => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => {
-                      setActiveItem(item.name);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className={`p-4 rounded-xl text-base font-medium tracking-wide transition-colors ${
-                      activeItem === item.name 
-                        ? 'bg-gray-100 text-gray-900' 
-                        : 'text-gray-600 hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
+          <motion.div 
+            initial={{ y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed top-0 left-0 w-full h-full bg-white z-[100] lg:hidden flex flex-col overflow-hidden"
+          >
+            {/* Menu Header with Logo and Close Button */}
+            <div className="px-4 py-4 flex justify-between items-center border-b border-gray-200">
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
+                <img src={logoImg} alt="Crown Commercial Furniture" className="h-[32px] w-auto object-contain scale-[1.3] origin-left" />
+                <span className="font-comfortaa tracking-widest text-gray-800 font-light ml-2 text-[15px]">Restaurantfurniture.in</span>
+              </Link>
+              <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-1 hover:bg-gray-100 rounded-full transition-colors ml-auto"
+              >
+                <X className="w-8 h-8 text-gray-900" strokeWidth={1.5} />
+              </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto pb-6 flex flex-col">
+                {mobileCategories.map(cat => (
+                  <div key={cat.name} className="flex flex-col border-b border-gray-100">
+                    <button
+                      onClick={() => setOpenMobileCategory(openMobileCategory === cat.name ? null : cat.name)}
+                      className="w-full flex items-center justify-between p-5 bg-white text-gray-900 font-medium text-[16px] tracking-wide"
+                    >
+                      {cat.name}
+                      <svg 
+                        className={`w-5 h-5 text-gray-900 transition-transform duration-200 ${openMobileCategory === cat.name ? 'rotate-180' : ''}`}
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    
+                    <AnimatePresence>
+                      {openMobileCategory === cat.name && cat.subCategories.length > 0 && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden bg-[#faf9f7]" // Light beige background for submenu
+                        >
+                          <div className="flex flex-col py-2">
+                            {cat.subCategories.map(sub => (
+                              <Link
+                                key={sub.name}
+                                to={sub.path}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="flex items-center justify-between px-6 py-4 text-[13px] tracking-widest text-gray-800 uppercase"
+                              >
+                                {sub.name}
+                                {sub.name.includes('SEE ALL') ? null : (
+                                  <svg 
+                                    className="w-4 h-4 text-gray-900"
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
                 ))}
               </div>
               <div className="p-5 border-t border-gray-100">
                 <a href="tel:+919876543210" className="w-full flex items-center justify-center gap-2 bg-[#ea580c] text-white py-4 rounded-xl font-semibold tracking-wide">
                   <PhoneCall className="w-5 h-5" />
-                  Call Us Now
+                  +91 98765 43210
                 </a>
               </div>
             </motion.div>
-          </>
         )}
       </AnimatePresence>
     </>
