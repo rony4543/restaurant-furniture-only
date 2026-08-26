@@ -27,7 +27,7 @@ const ProductSection = () => {
   return (
     <section className="w-full max-w-[1440px] mx-auto px-3 md:px-10 py-14 md:py-20">
       {/* Section Header */}
-      <div className="mb-10 md:mb-14 text-left">
+      <div className="mb-10 md:mb-14 text-center">
         <h2 className="text-[36px] md:text-[52px] font-chillax font-light tracking-[-0.045em] text-[#3e4435] uppercase">Our Products</h2>
       </div>
 
@@ -55,7 +55,7 @@ const ProductSection = () => {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ amount: 0.3 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="flex flex-col"
+                    className="flex flex-col h-full"
                   >
                     <Link 
                       to={`/product/${product.slug}`} 
@@ -78,7 +78,7 @@ const ProductSection = () => {
                       </div>
                     </div>
 
-                    <div className="pt-3 md:pt-4 flex flex-col gap-1 md:gap-1.5">
+                    <div className="pt-3 md:pt-4 flex flex-col gap-1 md:gap-1.5 flex-grow">
                       <div>
                         <h3 className="text-[14px] md:text-[16px] font-semibold tracking-wider text-gray-900 uppercase leading-snug line-clamp-2">
                           {product.name}
@@ -96,7 +96,7 @@ const ProductSection = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="mt-2.5 w-full md:w-auto md:max-w-[200px]">
+                      <div className="mt-auto pt-2.5 w-full md:w-auto md:max-w-[200px]">
                         <div 
                           onClick={(e) => handleGetQuote(e, product)}
                           className="w-full bg-[#ea580c] text-white text-center text-[11px] md:text-[12px] font-semibold tracking-widest uppercase py-3 md:py-3.5 rounded-full hover:bg-[#c2410c] transition-colors cursor-pointer shadow-sm"
