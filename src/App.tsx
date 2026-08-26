@@ -14,6 +14,9 @@ import AllProductsPage from './pages/AllProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ManufacturingPage from './pages/ManufacturingPage';
 import ProjectsPage from './pages/ProjectsPage';
+import ReturnAndRefundPolicyPage from './pages/ReturnAndRefundPolicyPage';
+import ShippingPolicyPage from './pages/ShippingPolicyPage';
+import TermsAndPrivacyPolicyPage from './pages/TermsAndPrivacyPolicyPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -48,6 +51,9 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/products" element={<AllProductsPage />} />
           <Route path="/product/:slug" element={<ProductDetailPage />} />
+          <Route path="/return-and-refund-policy" element={<ReturnAndRefundPolicyPage />} />
+          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+          <Route path="/terms-and-privacy-policy" element={<TermsAndPrivacyPolicyPage />} />
         </Routes>
         <Footer />
       </Router>

@@ -80,10 +80,9 @@ const Footer = () => {
             © 2026 Restaurantfurniture.in. All rights reserved.
           </div>
           <div className="flex flex-wrap items-center gap-6">
-            <Link to="/" className="hover:text-[#737373] transition-colors">Privacy Policy</Link>
-            <Link to="/" className="hover:text-[#737373] transition-colors">Terms and Conditions</Link>
-            <Link to="/" className="hover:text-[#737373] transition-colors">Security</Link>
-            <Link to="/" className="hover:text-[#737373] transition-colors">Cookies</Link>
+            <Link to="/terms-and-privacy-policy" className="hover:text-[#737373] transition-colors">T&C and Privacy Policy</Link>
+            <Link to="/return-and-refund-policy" className="hover:text-[#737373] transition-colors">Return & Refund Policy</Link>
+            <Link to="/shipping-policy" className="hover:text-[#737373] transition-colors">Shipping Policy</Link>
           </div>
         </div>
 
