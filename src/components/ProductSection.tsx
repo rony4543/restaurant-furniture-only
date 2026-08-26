@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { allProducts, Product } from '../data/products';
 import RequestQuoteModal from './RequestQuoteModal';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProductSection = () => {
@@ -48,12 +49,19 @@ const ProductSection = () => {
               {/* Product Grid: Horizontal scroll on mobile, 4 cols on desktop */}
               <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-4 lg:gap-x-6 lg:gap-y-6 pb-6 lg:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-3 px-3 md:mx-0 md:px-0">
                 {categoryProducts.map((product, index) => (
-                  <Link 
-                    to={`/product/${product.slug}`} 
+                  <motion.div 
                     key={product.slug} 
-                    className={`flex flex-col group cursor-pointer flex-none w-[85vw] sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
+                    initial={{ scale: 0.9, opacity: 0.5 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ amount: 0.7 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className={`flex flex-col flex-none w-[75vw] sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
                   >
-                    {/* Image Container */}
+                    <Link 
+                      to={`/product/${product.slug}`} 
+                      className="flex flex-col group cursor-pointer w-full h-full"
+                    >
+                      {/* Image Container */}
                     <div 
                       className="aspect-square flex items-center justify-center p-2 md:p-4 relative overflow-hidden rounded-lg md:rounded-xl"
                       style={{ backgroundColor: product.bgColor }}
@@ -98,6 +106,7 @@ const ProductSection = () => {
                       </div>
                     </div>
                   </Link>
+                </motion.div>
                 ))}
               </div>
             </div>
