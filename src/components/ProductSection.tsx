@@ -31,9 +31,9 @@ const ProductSection = () => {
       </div>
 
       {/* Categorized Product Feed */}
-      <div className="flex flex-col gap-12 md:gap-20">
+      <div className="flex flex-col gap-8 md:gap-12">
         {categoriesToDisplay.map((category) => {
-          const categoryProducts = allProducts.filter(p => p.category === category).slice(0, 4);
+          const categoryProducts = allProducts.filter(p => p.category === category).slice(0, 5);
           
           return (
             <div key={category} className="flex flex-col">
@@ -45,13 +45,13 @@ const ProductSection = () => {
                 </Link>
               </div>
 
-              {/* Product Grid: 1 col on mobile, 4 cols on desktop */}
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-6 gap-y-8">
+              {/* Product Grid: Horizontal scroll on mobile, 4 cols on desktop */}
+              <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-4 lg:gap-x-6 lg:gap-y-6 pb-6 lg:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-3 px-3 md:mx-0 md:px-0">
                 {categoryProducts.map((product, index) => (
                   <Link 
                     to={`/product/${product.slug}`} 
                     key={product.slug} 
-                    className={`flex flex-col group cursor-pointer ${index > 0 ? 'hidden lg:flex' : ''}`}
+                    className={`flex flex-col group cursor-pointer flex-none w-[85vw] sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
                   >
                     {/* Image Container */}
                     <div 
@@ -70,7 +70,7 @@ const ProductSection = () => {
                       </div>
                     </div>
 
-                    <div className="pt-3 md:pt-4 flex flex-col gap-1 md:gap-1.5 h-full justify-between">
+                    <div className="pt-3 md:pt-4 flex flex-col gap-1 md:gap-1.5">
                       <div>
                         <h3 className="text-[14px] md:text-[16px] font-semibold tracking-wider text-gray-900 uppercase leading-snug line-clamp-2">
                           {product.name}
@@ -88,10 +88,10 @@ const ProductSection = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="mt-4 w-full md:w-auto md:max-w-[200px]">
+                      <div className="mt-2.5 w-full md:w-auto md:max-w-[200px]">
                         <div 
                           onClick={(e) => handleGetQuote(e, product)}
-                          className="w-full bg-[#1c1c1c] text-white text-center text-[11px] md:text-[12px] font-semibold tracking-widest uppercase py-3 md:py-3.5 rounded-full hover:bg-[#c49a6c] transition-colors cursor-pointer shadow-sm"
+                          className="w-full bg-[#ea580c] text-white text-center text-[11px] md:text-[12px] font-semibold tracking-widest uppercase py-3 md:py-3.5 rounded-full hover:bg-[#c2410c] transition-colors cursor-pointer shadow-sm"
                         >
                           Get Quote
                         </div>

@@ -300,7 +300,7 @@ const ProductDetailPage = () => {
               </button>
               <button 
                 onClick={(e) => handleQuoteClick(e, product)}
-                className="flex-1 bg-[#c49a6c] hover:bg-[#b0885c] text-white text-[12px] font-semibold tracking-widest uppercase py-4 px-6 rounded transition-colors shadow-sm"
+                className="flex-1 bg-[#ea580c] hover:bg-[#c2410c] text-white text-[12px] font-semibold tracking-widest uppercase py-4 px-6 rounded transition-colors shadow-sm"
               >
                 Get Bulk Quote
               </button>
@@ -371,7 +371,7 @@ const ProductDetailPage = () => {
                   <div className="mt-auto w-full pt-3">
                     <div 
                       onClick={(e) => handleQuoteClick(e, rel)}
-                      className="w-full bg-[#1c1c1c] text-white text-center text-[9px] md:text-[11px] font-semibold tracking-widest uppercase py-2.5 rounded group-hover/card:bg-[#c49a6c] transition-colors cursor-pointer"
+                      className="w-full bg-[#ea580c] text-white text-center text-[9px] md:text-[11px] font-semibold tracking-widest uppercase py-2.5 rounded hover:bg-[#c2410c] transition-colors cursor-pointer"
                     >
                       Get Quote
                     </div>

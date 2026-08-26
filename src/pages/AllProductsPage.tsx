@@ -276,7 +276,7 @@ const ProductExplorer = () => {
                       <div className="mt-4 w-full">
                         <div 
                           onClick={(e) => handleGetQuote(e, product)}
-                          className="w-full bg-[#1c1c1c] text-white text-center text-[10px] md:text-[11px] font-semibold tracking-widest uppercase py-3 rounded group-hover:bg-[#c49a6c] transition-colors cursor-pointer shadow-sm"
+                          className="w-full bg-[#ea580c] text-white text-center text-[10px] md:text-[11px] font-semibold tracking-widest uppercase py-3 rounded hover:bg-[#c2410c] transition-colors cursor-pointer shadow-sm"
                         >
                           Get Quote
                         </div>
