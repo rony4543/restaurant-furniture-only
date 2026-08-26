@@ -34,7 +34,7 @@ const ProductSection = () => {
       {/* Categorized Product Feed */}
       <div className="flex flex-col gap-8 md:gap-12">
         {categoriesToDisplay.map((category) => {
-          const categoryProducts = allProducts.filter(p => p.category === category).slice(0, 5);
+          const categoryProducts = allProducts.filter(p => p.category === category).slice(0, 4);
           
           return (
             <div key={category} className="flex flex-col">
@@ -46,16 +46,16 @@ const ProductSection = () => {
                 </Link>
               </div>
 
-              {/* Product Grid: Horizontal scroll on mobile, 4 cols on desktop */}
-              <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-4 lg:gap-x-6 lg:gap-y-6 pb-6 lg:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-3 px-3 md:mx-0 md:px-0">
+              {/* Product Grid: 2 cols on mobile, 4 cols on desktop */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-x-6 lg:gap-y-6">
                 {categoryProducts.map((product, index) => (
                   <motion.div 
                     key={product.slug} 
-                    initial={{ scale: 0.9, opacity: 0.5 }}
+                    initial={{ scale: 0.95, opacity: 0.5 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ amount: 0.7 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className={`flex flex-col flex-none w-full sm:w-[320px] lg:w-auto snap-center lg:snap-align-none ${index > 3 ? 'lg:hidden' : ''}`}
+                    viewport={{ amount: 0.3 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="flex flex-col"
                   >
                     <Link 
                       to={`/product/${product.slug}`} 
