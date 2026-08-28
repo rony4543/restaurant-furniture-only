@@ -26,7 +26,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[52px] sm:text-[60px] md:text-[68px] lg:text-[76px] leading-[1.0] md:leading-[0.95] font-chillax font-light tracking-[-0.045em] text-white md:text-[#3e4435] drop-shadow-lg md:drop-shadow-none max-w-4xl"
+            className="text-[58px] sm:text-[64px] md:text-[68px] lg:text-[76px] leading-[1.0] md:leading-[0.95] font-chillax font-light tracking-[-0.045em] text-white md:text-[#3e4435] drop-shadow-lg md:drop-shadow-none max-w-4xl w-[90%] md:w-full"
           >
             <span className="block">Bulk Dining Furniture</span>
             <span className="block">for Distinctive</span>
@@ -36,7 +36,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white md:text-[#3e4435] mt-5 md:mt-6 text-[19px] sm:text-[21px] md:text-[24px] font-medium drop-shadow-md md:drop-shadow-none leading-snug max-w-2xl"
+            className="text-white md:text-[#3e4435] mt-5 md:mt-6 text-[19px] sm:text-[21px] md:text-[24px] font-medium drop-shadow-md md:drop-shadow-none leading-snug max-w-2xl w-[75%] sm:w-[70%] md:w-full"
           >
             Discover contract-grade seating and tables engineered for high-traffic venues.
           </motion.p>
@@ -44,9 +44,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4"
+            className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 items-start"
           >
-            <Link to="/products" className="bg-[#ea580c] text-white px-8 py-4 rounded-full font-medium hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto">
+            <Link to="/products" className="bg-[#ea580c] text-white px-10 py-4 rounded-full font-medium hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2 shadow-lg w-[80%] sm:w-auto">
               Browse Collections <span>▶︎</span>
             </Link>
           </motion.div>
