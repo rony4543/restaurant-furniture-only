@@ -9,6 +9,8 @@ import ProductSection from './components/ProductSection';
 import IntroductionSection from './components/IntroductionSection';
 import AboutSection from './components/AboutSection';
 import ManufacturingExcellence from './components/ManufacturingExcellence';
+import FAQSection from './components/FAQSection';
+import BottomCTASection from './components/BottomCTASection';
 
 import AllProductsPage from './pages/AllProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -17,6 +19,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import ReturnAndRefundPolicyPage from './pages/ReturnAndRefundPolicyPage';
 import ShippingPolicyPage from './pages/ShippingPolicyPage';
 import TermsAndPrivacyPolicyPage from './pages/TermsAndPrivacyPolicyPage';
+import AboutUsPage from './pages/AboutUsPage';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -34,7 +37,8 @@ function HomePage() {
         <ProductSection />
         <AboutSection />
         <ManufacturingExcellence />
-
+        <FAQSection />
+        <BottomCTASection />
       </main>
     </div>
   );
@@ -54,6 +58,7 @@ function App() {
           <Route path="/return-and-refund-policy" element={<ReturnAndRefundPolicyPage />} />
           <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
           <Route path="/terms-and-privacy-policy" element={<TermsAndPrivacyPolicyPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
         </Routes>
         <Footer />
       </Router>

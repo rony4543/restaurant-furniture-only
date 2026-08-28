@@ -48,7 +48,7 @@ const ProductSection = () => {
 
               {/* Product Grid: 2 cols on mobile, 4 cols on desktop */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-x-6 lg:gap-y-6">
-                {categoryProducts.map((product, index) => (
+                {categoryProducts.map((product) => (
                   <motion.div 
                     key={product.slug} 
                     initial={{ scale: 0.95, opacity: 0.5 }}
