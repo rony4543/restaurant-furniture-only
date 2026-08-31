@@ -1,6 +1,13 @@
+import PageMeta from '../components/PageMeta';
+
 const ReturnAndRefundPolicyPage = () => {
   return (
     <div className="w-full max-w-[1000px] mx-auto px-6 py-20 pt-32 font-body text-gray-700">
+      <PageMeta 
+        title="Return & Refund Policy"
+        description="Our return and refund policy for bespoke and wholesale furniture orders."
+        canonical="/return-and-refund-policy"
+      />
       <h1 className="text-4xl font-chillax mb-10 text-gray-900">Return & Refund Policy</h1>
       
       <div className="space-y-10 text-[15px] leading-relaxed">

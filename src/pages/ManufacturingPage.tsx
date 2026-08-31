@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
+import PageMeta from '../components/PageMeta';
 import img1 from '../assets/manufacturing_1.png';
 import img2 from '../assets/manufacturing_2.png';
 import ManufacturingBento from '../components/ManufacturingBento';
@@ -18,6 +19,11 @@ const ManufacturingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative bg-gray-50">
+      <PageMeta 
+        title="Manufacturing Excellence"
+        description="Explore our world-class manufacturing facility and techniques for crafting premium restaurant and hospitality furniture."
+        canonical="/manufacturing"
+      />
       <div className="relative w-full z-50 flex flex-col shadow-sm bg-white">
         <AnnouncementBar />
         <Header />

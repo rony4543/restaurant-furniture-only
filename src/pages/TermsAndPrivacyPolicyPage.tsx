@@ -148,9 +148,16 @@ Any and all communication relating to any suggestions, feedback, refund requests
 	•	Severability: If any provision/clause of these Terms is held to be invalid, illegal or unenforceable by any court or authority of competent jurisdiction, the validity, legality and enforceability of the remaining provisions/clauses of these Terms shall in no way be affected or impaired thereby, and each such provision/clause of these Terms shall be valid and enforceable to the fullest extent permitted by law. In such case, these Terms shall be reformed to the minimum extent necessary to correct any invalidity, illegality or unenforceability, while preserving to the maximum extent the original rights, intentions and commercial expectations of the Parties hereto, as expressed herein.
 `;
 
+import PageMeta from '../components/PageMeta';
+
 const TermsAndPrivacyPolicyPage = () => {
   return (
     <div className="w-full max-w-[1000px] mx-auto px-6 py-20 pt-32 font-body text-gray-700">
+      <PageMeta 
+        title="Terms & Privacy Policy"
+        description="Terms of service and privacy policy for Woodbeam Atelier."
+        canonical="/terms-and-privacy-policy"
+      />
       <h1 className="text-4xl font-chillax mb-10 text-gray-900">Terms & Conditions and Privacy Policy</h1>
       <div className="whitespace-pre-wrap leading-relaxed text-[15px]">
         {termsText}

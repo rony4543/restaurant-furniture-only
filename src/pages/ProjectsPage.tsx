@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
+import PageMeta from '../components/PageMeta';
 
 const projects = [
   {
@@ -38,6 +39,11 @@ const ProjectsPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-black">
+      <PageMeta 
+        title="Our Projects"
+        description="View our portfolio of furnished venues including restaurants, cafes, and hospitality spaces across the country."
+        canonical="/projects"
+      />
       <div className="relative w-full z-50 flex flex-col shadow-sm bg-white">
         <AnnouncementBar />
         <Header />

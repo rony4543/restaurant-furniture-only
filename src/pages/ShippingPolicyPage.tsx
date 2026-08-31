@@ -1,6 +1,13 @@
+import PageMeta from '../components/PageMeta';
+
 const ShippingPolicyPage = () => {
   return (
     <div className="w-full max-w-[1000px] mx-auto px-6 py-20 pt-32 font-body text-gray-700">
+      <PageMeta 
+        title="Shipping Policy"
+        description="Learn about Woodbeam's shipping policies, timelines, and 3rd party logistics for wholesale furniture orders."
+        canonical="/shipping-policy"
+      />
       <h1 className="text-4xl font-chillax mb-10 text-gray-900">Shipping Policy</h1>
       <div className="space-y-6 text-[15px] leading-relaxed">
         <ul className="list-disc pl-6 space-y-4">

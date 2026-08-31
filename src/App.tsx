@@ -1,6 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ReactLenis } from '@studio-freight/react-lenis';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import AnnouncementBar from './components/AnnouncementBar';
 import Header from './components/Header';
 import CategoryNav from './components/CategoryNav';
@@ -25,6 +26,10 @@ import ScrollToTop from './components/ScrollToTop';
 function HomePage() {
   return (
     <div className="min-h-screen flex flex-col relative bg-gray-50">
+      <Helmet>
+        <title>Woodbeam | Premium Horeca Seating, Tables & Outdoor Furniture</title>
+        <meta name="description" content="Manufacturer of commercial-grade furniture for restaurants, hotels, cafes and retail — bar stools, dining chairs, lounge seating, tables, sofas and outdoor furniture." />
+      </Helmet>
       <div className="relative w-full z-50 flex flex-col shadow-sm bg-white">
         <AnnouncementBar />
         <Header />
@@ -44,23 +49,27 @@ function HomePage() {
 
 function App() {
   return (
-    <ReactLenis root>
-      <Router>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/manufacturing" element={<ManufacturingPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/products" element={<AllProductsPage />} />
-          <Route path="/product/:slug" element={<ProductDetailPage />} />
-          <Route path="/return-and-refund-policy" element={<ReturnAndRefundPolicyPage />} />
-          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
-          <Route path="/terms-and-privacy-policy" element={<TermsAndPrivacyPolicyPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </ReactLenis>
+    <HelmetProvider>
+      <ReactLenis root>
+        <div className="mx-auto max-w-[2560px] bg-white relative shadow-2xl overflow-x-hidden min-h-screen flex flex-col">
+          <Router>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/manufacturing" element={<ManufacturingPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/products" element={<AllProductsPage />} />
+              <Route path="/product/:slug" element={<ProductDetailPage />} />
+              <Route path="/return-and-refund-policy" element={<ReturnAndRefundPolicyPage />} />
+              <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+              <Route path="/terms-and-privacy-policy" element={<TermsAndPrivacyPolicyPage />} />
+              <Route path="/about" element={<AboutUsPage />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </div>
+      </ReactLenis>
+    </HelmetProvider>
   );
 }
 

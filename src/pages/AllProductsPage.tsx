@@ -6,7 +6,7 @@ import AnnouncementBar from '../components/AnnouncementBar';
 
 import { Link, useLocation } from 'react-router-dom';
 import { allProducts, categoryList, colorList } from '../data/products';
-import usePageMeta from '../hooks/usePageMeta';
+import PageMeta from '../components/PageMeta';
 
 const ProductExplorer = () => {
   const location = useLocation();
@@ -52,14 +52,15 @@ const ProductExplorer = () => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [isMobileMenuOpen]);
 
-  usePageMeta({
-    title: selectedCategories.length === 1 ? selectedCategories[0] : 'All Products',
-    description: `Browse the full ${allProducts.length}-product Crown Commercial Furniture catalog — horeca seating, tables, outdoor furniture and more for restaurants, hotels, cafes and retail. Bulk B2B pricing.`,
-    canonical: '/products',
-  });
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#faf9f6]">
+    <div className="min-h-screen flex flex-col bg-[#FAF9F6]">
+      <PageMeta 
+        title={selectedCategories.length === 1 ? selectedCategories[0] : 'All Products'}
+        description={`Browse the full ${allProducts.length}-product Crown Commercial Furniture catalog — horeca seating, tables, outdoor furniture and more for restaurants, hotels, cafes and retail. Bulk B2B pricing.`}
+        canonical="/products"
+      />
+      
       <div className="relative w-full z-40 flex flex-col shadow-sm bg-white border-b border-gray-100">
         <AnnouncementBar />
         <Header />

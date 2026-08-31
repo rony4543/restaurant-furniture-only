@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
 import { allProducts, Product } from '../data/products';
 import RequestQuoteModal from '../components/RequestQuoteModal';
-import usePageMeta, { SITE_URL } from '../hooks/usePageMeta';
+import PageMeta, { SITE_URL } from '../components/PageMeta';
 
 const ProductDetailPage = () => {
   const { slug } = useParams();
@@ -52,17 +52,7 @@ const ProductDetailPage = () => {
     return () => window.removeEventListener('keydown', onKey);
   }, [nextImage, prevImage]);
 
-  usePageMeta({
-    title: product ? product.name : 'Product',
-    description: product
-      ? `${product.name} (${product.code}) — ${product.material}, engineered for high-traffic ${product.category.toLowerCase()}. Built for restaurants, hotels, cafes & retail. Get a bulk B2B quote.`
-      : undefined,
-    image: product ? `${SITE_URL}/assets/${encodeURIComponent(product.image)}` : undefined,
-    canonical: product ? `/product/${product.slug}` : undefined,
-    keywords: product
-      ? `${product.name}, ${product.category}, restaurant furniture, hotel furniture, commercial furniture, ${product.material}, horeca seating`
-      : undefined,
-  });
+
 
   if (!product) {
     return <Navigate to="/products" replace />;
@@ -100,7 +90,14 @@ const ProductDetailPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#faf9f6] font-sans">
+    <div className="min-h-screen flex flex-col bg-[#FAF9F6]">
+      <PageMeta
+        title={product.name}
+        description={`${product.name} (${product.code}) — ${product.material}, engineered for high-traffic ${product.category.toLowerCase()}. Built for restaurants, hotels, cafes & retail. Get a bulk B2B quote.`}
+        image={`${SITE_URL}/assets/${encodeURIComponent(product.image)}`}
+        canonical={`/product/${product.slug}`}
+        keywords={`${product.name}, ${product.category}, restaurant furniture, hotel furniture, commercial furniture, ${product.material}, horeca seating`}
+      />
       <div className="relative w-full z-40 flex flex-col shadow-sm bg-white border-b border-gray-100">
         <AnnouncementBar />
         <Header />

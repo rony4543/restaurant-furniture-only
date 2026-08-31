@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MapPin, Calendar, Phone, Mail, MessageCircle, Armchair, Scissors, Paintbrush, Truck, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
+import PageMeta from '../components/PageMeta';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -59,8 +60,16 @@ const AboutUsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F6]">
-      {/* Navigation */}
+    <div className="min-h-screen bg-white font-sans selection:bg-[#3e4435] selection:text-[#d3d7c5] flex flex-col">
+      <PageMeta 
+        title="About Woodbeam"
+        description="Discover Woodbeam's heritage, our 4-step craft process, and our mission to create bespoke restaurant furniture for the hospitality industry."
+        canonical="/about"
+      />
+      
+      {/* ═══════════════════════════════════════
+         TOP NAVIGATION (Fixed)
+         ═══════════════════════════════════════ */}
       <div className="relative w-full z-50 flex flex-col bg-white shadow-sm">
         <AnnouncementBar />
         <Header />
