@@ -7,7 +7,6 @@ import CategoryNav from './components/CategoryNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
 import IntroductionSection from './components/IntroductionSection';
-import AboutSection from './components/AboutSection';
 import ManufacturingExcellence from './components/ManufacturingExcellence';
 import FAQSection from './components/FAQSection';
 import BottomCTASection from './components/BottomCTASection';
@@ -35,7 +34,6 @@ function HomePage() {
         <HeroSection />
         <IntroductionSection />
         <ProductSection />
-        <AboutSection />
         <ManufacturingExcellence />
         <FAQSection />
         <BottomCTASection />
