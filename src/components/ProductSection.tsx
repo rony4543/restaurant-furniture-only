@@ -1,20 +1,9 @@
-import { useState } from 'react';
-import { allProducts, Product } from '../data/products';
-import RequestQuoteModal from './RequestQuoteModal';
+import { allProducts } from '../data/products';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProductSection = () => {
-  const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-
-  const handleGetQuote = (e: React.MouseEvent, product: Product) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setSelectedQuoteProduct(product);
-    setIsQuoteModalOpen(true);
-  };
 
   const categoriesToDisplay = [
     "Bar Chairs",
@@ -98,10 +87,9 @@ const ProductSection = () => {
                       {/* Action Buttons */}
                       <div className="mt-auto pt-2.5 w-full md:w-auto md:max-w-[200px]">
                         <div 
-                          onClick={(e) => handleGetQuote(e, product)}
                           className="w-full bg-[#ea580c] text-white text-center text-[11px] md:text-[12px] font-semibold tracking-widest uppercase py-3 md:py-3.5 rounded-full hover:bg-[#c2410c] transition-colors cursor-pointer shadow-sm"
                         >
-                          Get Quote
+                          View Details
                         </div>
                       </div>
                     </div>
@@ -139,11 +127,6 @@ const ProductSection = () => {
         </Link>
       </div>
 
-      <RequestQuoteModal 
-        isOpen={isQuoteModalOpen} 
-        onClose={() => setIsQuoteModalOpen(false)} 
-        product={selectedQuoteProduct} 
-      />
     </section>
   );
 };

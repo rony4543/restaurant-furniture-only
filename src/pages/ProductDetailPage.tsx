@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronDown, ChevronUp, Star, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronDown, ChevronUp, ChevronLeft } from 'lucide-react';
 import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
 import { allProducts, Product } from '../data/products';
@@ -16,7 +16,6 @@ const ProductDetailPage = () => {
 
   const [activeImage, setActiveImage] = useState(0);
   const [openAccordion, setOpenAccordion] = useState<string | null>('description');
-  const [selectedColor, setSelectedColor] = useState(product?.colors[0] || '#000');
   const [quantity, setQuantity] = useState(1);
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -263,19 +262,6 @@ const ProductDetailPage = () => {
             {/* Selectors */}
             <div className="flex items-center gap-6 md:gap-8 mb-8 flex-wrap">
               <div className="flex items-center gap-3">
-                <span className="text-[13px] text-gray-700 font-medium">Color:</span>
-                <div className="relative">
-                  <select 
-                    className="appearance-none border border-gray-300 rounded px-4 py-1.5 pr-8 text-[13px] bg-transparent focus:outline-none focus:border-gray-500 cursor-pointer"
-                    value={selectedColor}
-                    onChange={(e) => setSelectedColor(e.target.value)}
-                  >
-                    {product.colors.map(c => <option key={c} value={c}>{c}</option>)}
-                  </select>
-                  <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500" />
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
                 <span className="text-[13px] text-gray-700 font-medium">Quantity:</span>
                 <div className="relative">
                   <select 
@@ -294,13 +280,7 @@ const ProductDetailPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 max-w-md">
               <button 
                 onClick={(e) => handleQuoteClick(e, product)}
-                className="flex-1 bg-[#1c1c1c] hover:bg-black text-white text-[12px] font-semibold tracking-widest uppercase py-4 px-6 rounded transition-colors shadow-sm"
-              >
-                Request Sample
-              </button>
-              <button 
-                onClick={(e) => handleQuoteClick(e, product)}
-                className="flex-1 bg-[#ea580c] hover:bg-[#c2410c] text-white text-[12px] font-semibold tracking-widest uppercase py-4 px-6 rounded transition-colors shadow-sm"
+                className="w-full bg-[#ea580c] hover:bg-[#c2410c] text-white text-[12px] font-semibold tracking-widest uppercase py-4 px-6 rounded transition-colors shadow-sm"
               >
                 Get Bulk Quote
               </button>
@@ -382,60 +362,6 @@ const ProductDetailPage = () => {
           </div>
         )}
 
-        {/* Reviews Section */}
-        <div className="mt-12 mb-24">
-          <div className="flex items-center gap-6 mb-10">
-            <h2 className="text-[16px] md:text-[22px] font-chillax tracking-[0.2em] font-bold uppercase text-gray-900 shrink-0">
-              Reviews
-            </h2>
-            <div className="h-[2px] bg-gray-900 flex-grow"></div>
-          </div>
-
-          <div className="overflow-hidden w-full relative">
-            <div className="flex gap-8 md:gap-12 w-max animate-marquee">
-              {[0, 1].map((setIdx) => (
-                <div key={setIdx} className="flex gap-8 md:gap-12 shrink-0">
-                  <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start relative group cursor-pointer w-[320px] md:w-[600px] bg-white p-6 md:p-8 border border-gray-200">
-                    <div className="w-[60px] md:w-[80px] h-[60px] md:h-[80px] border border-gray-900 flex items-center justify-center shrink-0">
-                      <span className="text-[16px] md:text-[18px] font-medium tracking-widest text-gray-900 uppercase">AV</span>
-                    </div>
-                    <div className="flex flex-col gap-2 shrink-0 md:w-[130px]">
-                      <span className="text-[14px] font-medium text-gray-900">Alex V.</span>
-                      <span className="text-[13px] text-gray-500 mb-1">June 1, 2026</span>
-                      <div className="flex gap-1 text-gray-900">
-                        {[0,1,2,3].map(i => <Star key={i} size={14} fill="currentColor" />)}
-                        <Star size={14} className="text-gray-300" />
-                      </div>
-                    </div>
-                    <div className="flex-grow pl-0 md:pl-6 md:border-l border-gray-300">
-                      <p className="text-[13px] leading-relaxed text-gray-600">
-                        Convenience with high back and waist support, with armrests. Standard adjustment mechanism. The lowest price among analogues. As usual, it was delivered quickly and without any problems. Highly recommend for commercial use.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start relative group cursor-pointer w-[320px] md:w-[600px] bg-white p-6 md:p-8 border border-gray-200">
-                    <div className="w-[60px] md:w-[80px] h-[60px] md:h-[80px] border border-gray-900 flex items-center justify-center shrink-0 bg-gray-50">
-                      <span className="text-[16px] md:text-[18px] font-medium tracking-widest text-gray-900 uppercase">MK</span>
-                    </div>
-                    <div className="flex flex-col gap-2 shrink-0 md:w-[130px]">
-                      <span className="text-[14px] font-medium text-gray-900">Maria K.</span>
-                      <span className="text-[13px] text-gray-500 mb-1">August 12, 2026</span>
-                      <div className="flex gap-1 text-gray-900">
-                        {[0,1,2,3,4].map(i => <Star key={i} size={14} fill="currentColor" />)}
-                      </div>
-                    </div>
-                    <div className="flex-grow pl-0 md:pl-6 md:border-l border-gray-300">
-                      <p className="text-[13px] leading-relaxed text-gray-600">
-                        Beautiful minimalist design that perfectly matched our hotel lobby. The craftsmanship is excellent and the materials feel incredibly premium. Will be ordering more.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </main>
       
       {/* Request Quote Modal */}

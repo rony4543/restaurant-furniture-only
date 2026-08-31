@@ -5,8 +5,7 @@ import Header from '../components/Header';
 import AnnouncementBar from '../components/AnnouncementBar';
 
 import { Link, useLocation } from 'react-router-dom';
-import { allProducts, categoryList, colorList, Product } from '../data/products';
-import RequestQuoteModal from '../components/RequestQuoteModal';
+import { allProducts, categoryList, colorList } from '../data/products';
 import usePageMeta from '../hooks/usePageMeta';
 
 const ProductExplorer = () => {
@@ -17,16 +16,6 @@ const ProductExplorer = () => {
   );
   const [selectedColors, setSelectedColors] = useState<string[]>(['Brown']);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<Product | null>(null);
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-
-  const handleGetQuote = (e: React.MouseEvent, product: Product) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setSelectedQuoteProduct(product);
-    setIsQuoteModalOpen(true);
-  };
 
   // Removed handleBuyNowClick to allow Link navigation
 
@@ -275,10 +264,9 @@ const ProductExplorer = () => {
                       {/* Action Buttons */}
                       <div className="mt-4 w-full">
                         <div 
-                          onClick={(e) => handleGetQuote(e, product)}
                           className="w-full bg-[#ea580c] text-white text-center text-[10px] md:text-[11px] font-semibold tracking-widest uppercase py-3 rounded hover:bg-[#c2410c] transition-colors cursor-pointer shadow-sm"
                         >
-                          Get Quote
+                          View Details
                         </div>
                       </div>
                     </div>
@@ -395,13 +383,6 @@ const ProductExplorer = () => {
           </>
         )}
       </AnimatePresence>
-      
-      {/* Request Quote Modal */}
-      <RequestQuoteModal 
-        isOpen={isQuoteModalOpen} 
-        onClose={() => setIsQuoteModalOpen(false)} 
-        product={selectedQuoteProduct} 
-      />
     </div>
   );
 };
