@@ -251,9 +251,9 @@ const Header = () => {
             
             {/* CTA Contact Info - Hidden on Mobile */}
             <div className="hidden lg:flex flex-col items-center justify-center ml-2">
-              <a href="tel:+919876543210" className="flex items-center gap-1.5 text-[#ea580c] hover:text-[#c2410c] font-semibold text-[18px] tracking-wide transition-colors">
+              <a href="tel:+919660225339" className="flex items-center gap-1.5 text-[#ea580c] hover:text-[#c2410c] font-semibold text-[18px] tracking-wide transition-colors">
                 <PhoneCall className="w-[18px] h-[18px]" />
-                <span>+91 98765 43210</span>
+                <span>+91 96602 25339</span>
               </a>
               <span className="text-gray-500 text-[12px] font-medium mt-0.5">Bulk Order? Call Our Experts!</span>
             </div>
@@ -341,9 +341,9 @@ const Header = () => {
                 ))}
               </div>
               <div className="p-5 border-t border-gray-100">
-                <a href="tel:+919876543210" className="w-full flex items-center justify-center gap-2 bg-[#ea580c] text-white py-4 rounded-xl font-semibold tracking-wide">
+                <a href="tel:+919660225339" className="w-full flex items-center justify-center gap-2 bg-[#ea580c] text-white py-4 rounded-xl font-semibold tracking-wide">
                   <PhoneCall className="w-5 h-5" />
-                  +91 98765 43210
+                  +91 96602 25339
                 </a>
               </div>
             </motion.div>
