@@ -16,7 +16,6 @@ const Footer = () => {
             <div className="text-[14px] leading-relaxed mb-8 max-w-sm flex flex-col gap-2">
               <p>Address: 123 AA Lane, Industrial Area,<br />Jodhpur - 342001. Rajasthan (India)</p>
               <p>Phone: +91 96602 25339</p>
-              <p>Email: info@aa.in</p>
             </div>
             <div className="flex items-center gap-5 text-gray-500">
               <a href="#" className="hover:text-[#1a1a1a] transition-colors"><Instagram className="w-[18px] h-[18px]" /></a>

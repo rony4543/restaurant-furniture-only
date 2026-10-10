@@ -397,12 +397,6 @@ const BentoVersion = () => {
             Start Your Bespoke Order
             <ArrowRight size={15} />
           </a>
-          <a
-            href="mailto:woodbeamindia@gmail.com"
-            className="text-white/50 text-[13px] tracking-wider uppercase hover:text-[#c49a6c] transition-colors duration-300 font-light"
-          >
-            woodbeamindia@gmail.com
-          </a>
         </motion.div>
       </div>
     </motion.div>

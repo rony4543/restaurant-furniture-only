@@ -15,7 +15,7 @@ const ShippingPolicyPage = () => {
           <li>Shipping timeline provided for all the products on the website are estimation only; shipment timing may vary depending on the production schedule and logistics schedule. There may be some unforeseen circumstances that may lead to delays.</li>
           <li>All delivery dates, if scheduled, are estimates only. You will be notified when the products are dispatched from our warehouse.</li>
         </ul>
-        <p>In case you are not able to track your order or it hasn't been delivered to you on the decided date, please write us on info@restaurantfurniture.in or call 9660225339</p>
+        <p>In case you are not able to track your order or it hasn't been delivered to you on the decided date, please call us on 9660225339</p>
       </div>
     </div>
   );

@@ -516,14 +516,6 @@ const AboutUsPage: React.FC = () => {
                   +91 96602 25339
                 </a>
               </div>
-
-              <a
-                href="mailto:woodbeamindia@gmail.com"
-                className="text-[#999] text-[13px] tracking-wider hover:text-[#c49a6c] transition-colors duration-300 flex items-center justify-center gap-2"
-              >
-                <Mail size={14} />
-                woodbeamindia@gmail.com
-              </a>
             </motion.div>
           </div>
         </section>
