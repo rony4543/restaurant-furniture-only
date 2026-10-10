@@ -389,7 +389,7 @@ const BentoVersion = () => {
           className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10"
         >
           <a
-            href="https://wa.me/919358581297"
+            href="https://wa.me/919660225339"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3.5 bg-[#c49a6c] text-white text-[13px] uppercase tracking-[0.15em] font-semibold hover:bg-[#b0895c] transition-colors duration-300 flex items-center gap-2"

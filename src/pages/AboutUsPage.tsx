@@ -499,7 +499,7 @@ const AboutUsPage: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
                 <a
-                  href="https://wa.me/919358581297"
+                  href="https://wa.me/919660225339"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#1a1a1a] text-white text-[12px] sm:text-[13px] uppercase tracking-[0.15em] font-semibold hover:bg-[#333] transition-colors duration-300 flex items-center justify-center gap-2.5 group"
@@ -509,11 +509,11 @@ const AboutUsPage: React.FC = () => {
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
                 <a
-                  href="tel:+919358581297"
+                  href="tel:+919660225339"
                   className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-gray-200 text-[#1a1a1a] text-[12px] sm:text-[13px] uppercase tracking-[0.15em] font-semibold hover:border-[#c49a6c] hover:text-[#c49a6c] transition-all duration-300 flex items-center justify-center gap-2.5"
                 >
                   <Phone size={16} />
-                  +91 93585 81297
+                  +91 96602 25339
                 </a>
               </div>
 
